@@ -41,4 +41,6 @@ if difference_percent > 3:
 
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
     articles = news_response.json()["articles"]
-    print(articles)
+
+    three_articles = articles[:3]
+    print(three_articles)
