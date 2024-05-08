@@ -32,3 +32,13 @@ print(difference)
 
 difference_percent = (difference / float(yesterday_closing_price)) * 100
 print(difference_percent)
+
+if difference_percent > 3:
+    news_params = {
+        "apiKey": NEWS_API_KEY,
+        "qInTitle": COMPANY_NAME,
+    }
+
+    news_response = requests.get(NEWS_ENDPOINT, params=news_params)
+    articles = news_response.json()["articles"]
+    print(articles)
